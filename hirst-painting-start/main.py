@@ -3,6 +3,7 @@
 import colorgram
 from turtle import *
 import random
+ht()    # hide turtle
 colormode(255)
 penup()
 
