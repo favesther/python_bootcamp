@@ -2,23 +2,25 @@
 ##We talk about this in the video tutorials##
 import colorgram
 from turtle import *
+import random
 colormode(255)
 penup()
 
 rgb_colors = []
 colors = colorgram.extract('image.jpg', 30)
-x = -50
-y = -50
-radius = 30
+number_of_dots = 100
+x = -200
+y = -200
+radius = 20
 setpos(x, y)
 
 for color in colors:
     rgb_colors.append(color.rgb)
 
 i = 0
-for _ in range(5):
-    for _ in range(6):
-        color = rgb_colors[i]
+for _ in range(number_of_dots//10):
+    for _ in range(10):
+        color = random.choice(rgb_colors)
         pendown()
         dot(radius, (color.r, color.g, color.b))
         penup()
@@ -28,6 +30,5 @@ for _ in range(5):
     y += radius*2
     setpos(x, y)
 
-
-print(rgb_colors)
+done()
 
