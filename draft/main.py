@@ -3,6 +3,11 @@ import random
 
 colormode(255)
 
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return r, g, b
 
 def draw_duobianxing(n):
     r = random.randint(0, 255)
@@ -23,24 +28,19 @@ def random_walk():
         # r = random.randint(0, 255)
         # g = random.randint(0, 255)
         # b = random.randint(0, 255)
-        for r in range(0, 255, 30):
-            for g in range(0, 255, 30):
-                for b in range(0, 255, 30):
-                    pencolor((r, g, b))
-                    pensize(5)
-                    angle = random.choice([0, 90, 180, 270])
-                    # angle = random.randint(0, 360)
-                    forward(20)
-                    setheading(angle)
+        # for r in range(0, 255, 30):
+        #     for g in range(0, 255, 30):
+        #         for b in range(0, 255, 30):
+        pencolor(random_color())
+        pensize(5)
+        angle = random.choice([0, 90, 180, 270])
+        # angle = random.randint(0, 360)
+        forward(20)
+        setheading(angle)
 
-# random_walk()
+random_walk()
 
 
-def random_color():
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    return r, g, b
 
 
 def circles(size_of_gap):
