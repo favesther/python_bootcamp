@@ -25,10 +25,22 @@ game_is_on = True
 while game_is_on:
     snake.move()
     screen.update()
-    time.sleep(0.5)
-    if snake.body[0].distance(food) < 15:
-        snake.body.append()
-        food.refresh()
+    time.sleep(0.1)
+    # TODO.2 HIT WALL
+    if abs(snake.body[0].xcor()) >= 280 or abs(snake.body[0].ycor()) >= 280:
+        game_is_on = False
+        scoreboard.game_over()
     # TODO.1 detect collision
+    if snake.body[0].distance(food) < 15:
+        # TODO.3 eat and longer
+        snake.extend()
+        food.refresh()
+        scoreboard.increase_score()
+
+    # TODO.4 detect collision with the tail
+    for body in snake.body[1:]:
+        if snake.body[0].distance(body) < 10:
+            game_is_on = False
+            scoreboard.game_over()
 
 screen.exitonclick()
