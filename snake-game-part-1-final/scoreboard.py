@@ -21,6 +21,11 @@ class Scoreboard(Turtle):
         self.score += 1
         self.update_scoreboard()
 
+<<<<<<< Updated upstream
     def game_over(self):
         self.goto(0, 0)
         self.write("GAME OVER", align=ALIGNMENT, font=FONT)
+=======
+    def add_score(self):
+        self.score += 1
+>>>>>>> Stashed changes
