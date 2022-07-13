@@ -21,14 +21,17 @@ screen.onkey(paddle.down, "Down")
 
 game_is_on = True
 while game_is_on:
-    screen.update()
-    ball.move()
-    print(ball.position())
-    if ball.xcor() < -100 or ball.xcor() > 100 or ball.ycor() < -280 or ball.ycor() > 280:
-        print(ball.heading())
+    print(ball.distance(paddle))
+    if abs(ball.ycor()) > 280:
         ball.bounce()
-        print(ball.heading())
+    if ball.distance(paddle) < 30:
+        ball.turnaround()
+    if abs(ball.xcor()) > 350:
+        game_is_on = False
+        print("GAME OVER")
+    ball.move()
+        # screen.write("GAME OVER", align=ALIGNMENT, font=FONT)
     screen.update()
-    time.sleep(0.5)
+    time.sleep(0.1)
 
 screen.exitonclick()
