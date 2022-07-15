@@ -33,8 +33,8 @@ while game_is_on:
     # TODO.1 detect collision
     if snake.body[0].distance(food) < 15:
         # TODO.3 eat and longer
-        snake.extend()
         food.refresh()
+        snake.extend()
         scoreboard.increase_score()
 
     # TODO.4 detect collision with the tail
