@@ -34,5 +34,7 @@ while game_is_on:
         player.reset_position()
     screen.update()
 
+# to make the GAME OVER on top of everything else
+scoreboard.game_over()
 
 screen.exitonclick()
