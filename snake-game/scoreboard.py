@@ -13,7 +13,7 @@ class Scoreboard(Turtle):
         self.penup()
         self.goto(0, 270)
         self.color("white")
-        self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
+        self.write(f"Score: {self.score}, High Score: {self.high_score}", align=ALIGNMENT, font=FONT)
 
     def update_scoreboard(self):
         self.clear()

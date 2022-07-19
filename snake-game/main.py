@@ -28,8 +28,9 @@ while game_is_on:
     time.sleep(0.1)
     # TODO.2 HIT WALL
     if abs(snake.body[0].xcor()) >= 280 or abs(snake.body[0].ycor()) >= 280:
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
+
     # TODO.1 detect collision
     if snake.body[0].distance(food) < 15:
         # TODO.3 eat and longer
@@ -40,7 +41,7 @@ while game_is_on:
     # TODO.4 detect collision with the tail
     for body in snake.body[1:]:
         if snake.body[0].distance(body) < 10:
-            game_is_on = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
 screen.exitonclick()
